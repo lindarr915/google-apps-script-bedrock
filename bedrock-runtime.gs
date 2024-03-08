@@ -53,7 +53,7 @@ function Bedrock() {
 
     var res = AWS.request(service = "bedrock-runtime", region = region, action = "", params = {}, method = 'POST', payload = stringPayload, headers = { 'Content-Type': 'application/json' }, uri = `/model/${modelName}/invoke`);
     Logger.log(res);
-    Logger.log(JSON.parse(res).text);
+    Logger.log(JSON.parse(res).content[0].text);
     return JSON.parse(res).content[0].text
 
 }
